@@ -164,8 +164,24 @@ export const zh = {
   'pricing.feature.sessions': '无限会话与未来更新',
   'pricing.feature.native': '原生 Swift — 内存占用 < 50MB',
   'pricing.cta': '获取早鸟价',
+  'pricing.openingCheckout': '正在前往安全支付…',
+  'pricing.checkoutError': '暂时无法打开支付页面，请稍后重试。',
   'pricing.trialLink': '或者先免费试用 →',
   'pricing.paymentIssues': '支付问题？',
+
+  // Checkout complete
+  'thankYou.eyebrow': '下一步',
+  'thankYou.title': '请查收你的 License Key',
+  'thankYou.subtitle': 'Creem 会把订单收据和 License Key 发送到付款邮箱。收到后，在 SkillSlot 中粘贴 Key 即可激活。',
+  'thankYou.step.email.title': '检查付款邮箱',
+  'thankYou.step.email.description': '查找来自 Creem 的收据与 License Key；如果没有看到，也请检查垃圾邮件。',
+  'thankYou.step.download.title': '下载 SkillSlot',
+  'thankYou.step.download.description': '安装最新版 Mac 应用。你也可以先使用完整功能试用。',
+  'thankYou.step.activate.title': '粘贴并激活',
+  'thankYou.step.activate.description': '打开 SkillSlot 的 License 页面，粘贴 Key 并激活当前 Mac。',
+  'thankYou.download': '下载 Mac 版',
+  'thankYou.backHome': '返回首页',
+  'thankYou.help': '未收到邮件或支付遇到问题？请联系',
 
   // Footer
   'footer.cta.title': '准备好管理你的 Agent Skills 了吗？',

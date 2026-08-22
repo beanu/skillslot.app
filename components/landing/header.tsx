@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { useLanguage, useT } from '@/lib/i18n/context'
 import Link from 'next/link'
 
-export function Header() {
+export function Header({ sectionBase = '' }: { sectionBase?: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { locale, setLocale } = useLanguage()
   const t = useT()
@@ -39,13 +39,13 @@ export function Header() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <a href="#features" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <a href={`${sectionBase}#features`} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             {t('header.features')}
           </a>
-          <a href="#demo" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <a href={`${sectionBase}#demo`} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             {t('header.demo')}
           </a>
-          <a href="#pricing" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <a href={`${sectionBase}#pricing`} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             {t('header.pricing')}
           </a>
           <Link href="/changelog" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
@@ -99,13 +99,13 @@ export function Header() {
             className="border-t border-border/50 bg-background md:hidden"
           >
             <nav className="flex flex-col gap-2 p-4">
-              <a href="#features" className="rounded-lg px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
+              <a href={`${sectionBase}#features`} className="rounded-lg px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
                 {t('header.features')}
               </a>
-              <a href="#demo" className="rounded-lg px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
+              <a href={`${sectionBase}#demo`} className="rounded-lg px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
                 {t('header.demo')}
               </a>
-              <a href="#pricing" className="rounded-lg px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
+              <a href={`${sectionBase}#pricing`} className="rounded-lg px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
                 {t('header.pricing')}
               </a>
               <Link href="/changelog" className="rounded-lg px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">

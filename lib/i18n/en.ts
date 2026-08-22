@@ -166,8 +166,24 @@ export const en: Record<TranslationKey, string> = {
   'pricing.feature.sessions': 'Unlimited sessions & future updates',
   'pricing.feature.native': 'Native Swift — under 50MB RAM',
   'pricing.cta': 'Get Early Bird Price',
+  'pricing.openingCheckout': 'Opening secure checkout…',
+  'pricing.checkoutError': 'Checkout is temporarily unavailable. Please try again.',
   'pricing.trialLink': 'Or download free trial first →',
   'pricing.paymentIssues': 'Payment issues?',
+
+  // Checkout complete
+  'thankYou.eyebrow': 'Next steps',
+  'thankYou.title': 'Check your inbox for your License Key',
+  'thankYou.subtitle': 'Creem will send the receipt and License Key to the email used at checkout. Paste the Key into SkillSlot to activate the app.',
+  'thankYou.step.email.title': 'Check your payment email',
+  'thankYou.step.email.description': 'Look for your Creem receipt and License Key. Check your spam folder if it is not in your inbox.',
+  'thankYou.step.download.title': 'Download SkillSlot',
+  'thankYou.step.download.description': 'Install the latest Mac app. You can also start with the full-feature trial.',
+  'thankYou.step.activate.title': 'Paste and activate',
+  'thankYou.step.activate.description': 'Open the License page in SkillSlot, paste your Key, and activate this Mac.',
+  'thankYou.download': 'Download for Mac',
+  'thankYou.backHome': 'Back to home',
+  'thankYou.help': 'Did not receive the email or had a payment issue? Contact',
 
   // Footer
   'footer.cta.title': 'Ready to manage your Agent Skills?',

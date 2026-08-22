@@ -1,16 +1,19 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check } from 'lucide-react'
+import { Check, LoaderCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useT } from '@/lib/i18n/context'
+import { useLanguage, useT } from '@/lib/i18n/context'
 import type { TranslationKey } from '@/lib/i18n/zh'
+import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
+
+type PlanId = 'mac_1' | 'mac_2' | 'mac_3'
 
 const tiers = [
-  { key: '1mac', tabKey: 'pricing.tab.1mac' as TranslationKey, price: '$14.99', originalPrice: '$19.99', descKey: 'pricing.desc.1mac' as TranslationKey },
-  { key: '2macs', tabKey: 'pricing.tab.2macs' as TranslationKey, price: '$24.99', originalPrice: '$34.99', descKey: 'pricing.desc.2macs' as TranslationKey },
-  { key: '3macs', tabKey: 'pricing.tab.3macs' as TranslationKey, price: '$34.99', originalPrice: '$49.99', descKey: 'pricing.desc.3macs' as TranslationKey },
+  { key: '1mac', planId: 'mac_1' as PlanId, tabKey: 'pricing.tab.1mac' as TranslationKey, price: '$14.99', originalPrice: '$19.99', descKey: 'pricing.desc.1mac' as TranslationKey },
+  { key: '2macs', planId: 'mac_2' as PlanId, tabKey: 'pricing.tab.2macs' as TranslationKey, price: '$24.99', originalPrice: '$34.99', descKey: 'pricing.desc.2macs' as TranslationKey },
+  { key: '3macs', planId: 'mac_3' as PlanId, tabKey: 'pricing.tab.3macs' as TranslationKey, price: '$34.99', originalPrice: '$49.99', descKey: 'pricing.desc.3macs' as TranslationKey },
 ]
 
 const featureKeys: TranslationKey[] = [
@@ -23,8 +26,61 @@ const featureKeys: TranslationKey[] = [
 
 export function Pricing() {
   const [activeTier, setActiveTier] = useState(0)
+  const [isOpeningCheckout, setIsOpeningCheckout] = useState(false)
+  const [checkoutError, setCheckoutError] = useState<string | null>(null)
+  const requestIds = useRef<Partial<Record<PlanId, string>>>({})
+  const { locale } = useLanguage()
   const t = useT()
   const tier = tiers[activeTier]
+
+  const handleCheckout = async () => {
+    if (isOpeningCheckout) return
+
+    setIsOpeningCheckout(true)
+    setCheckoutError(null)
+
+    const requestId =
+      requestIds.current[tier.planId] || `web_${crypto.randomUUID()}`
+    requestIds.current[tier.planId] = requestId
+
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          plan_id: tier.planId,
+          request_id: requestId,
+          locale,
+        }),
+      })
+      const body: unknown = await response.json().catch(() => null)
+
+      if (!response.ok) {
+        const message =
+          body && typeof body === 'object' && 'message' in body && Array.isArray(body.message)
+            ? body.message.find((item): item is string => typeof item === 'string')
+            : null
+        throw new Error(message || t('pricing.checkoutError'))
+      }
+
+      const checkoutUrl =
+        body && typeof body === 'object' && 'checkout_url' in body && typeof body.checkout_url === 'string'
+          ? body.checkout_url
+          : null
+
+      if (!checkoutUrl) {
+        throw new Error(t('pricing.checkoutError'))
+      }
+
+      window.location.assign(checkoutUrl)
+    } catch (error) {
+      setCheckoutError(error instanceof Error ? error.message : t('pricing.checkoutError'))
+      setIsOpeningCheckout(false)
+    }
+  }
 
   return (
     <section id="pricing" className="relative py-32">
@@ -112,6 +168,7 @@ export function Pricing() {
               {tiers.map((item, index) => (
                 <button
                   key={item.key}
+                  type="button"
                   onClick={() => setActiveTier(index)}
                   className={`relative rounded-md px-5 py-1.5 font-mono text-sm transition-all ${
                     activeTier === index
@@ -152,15 +209,33 @@ export function Pricing() {
 
             {/* CTA button */}
             <Button
+              type="button"
               size="lg"
               className="w-full bg-foreground text-background hover:bg-foreground/90"
+              disabled={isOpeningCheckout}
+              onClick={() => void handleCheckout()}
             >
-              {t('pricing.cta')}
+              {isOpeningCheckout ? (
+                <>
+                  <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />
+                  {t('pricing.openingCheckout')}
+                </>
+              ) : (
+                t('pricing.cta')
+              )}
             </Button>
+
+            <p
+              className={`mt-3 text-center text-sm text-destructive ${checkoutError ? 'block' : 'hidden'}`}
+              role="alert"
+              aria-live="polite"
+            >
+              {checkoutError}
+            </p>
 
             {/* Trial link */}
             <p className="mt-4 text-center text-sm text-muted-foreground">
-              <a href="#" className="transition-colors hover:text-foreground">
+              <a href={SKILLSLOT_DOWNLOAD_URL} className="transition-colors hover:text-foreground">
                 {t('pricing.trialLink')}
               </a>
             </p>

@@ -6,12 +6,12 @@ import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
 import Link from 'next/link'
 
-export function Footer() {
+export function Footer({ sectionBase = '' }: { sectionBase?: string }) {
   const t = useT()
 
   const productLinks = [
-    { label: t('footer.product.features'), href: '#features' },
-    { label: t('footer.product.pricing'), href: '#pricing' },
+    { label: t('footer.product.features'), href: `${sectionBase}#features` },
+    { label: t('footer.product.pricing'), href: `${sectionBase}#pricing` },
     { label: t('footer.product.changelog'), href: '/changelog' },
     { label: t('footer.product.roadmap'), href: '#' },
   ]
