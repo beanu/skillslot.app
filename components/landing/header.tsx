@@ -51,9 +51,6 @@ export function Header({ sectionBase = '' }: { sectionBase?: string }) {
           <Link href="/changelog" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             {t('header.changelog')}
           </Link>
-          <Link href="/prototype" className="text-sm text-primary transition-colors hover:text-primary/80">
-            {t('header.prototype')}
-          </Link>
         </motion.nav>
 
         {/* Actions */}
@@ -110,9 +107,6 @@ export function Header({ sectionBase = '' }: { sectionBase?: string }) {
               </a>
               <Link href="/changelog" className="rounded-lg px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
                 {t('header.changelog')}
-              </Link>
-              <Link href="/prototype" className="rounded-lg px-4 py-2 text-sm text-primary transition-colors hover:bg-primary/10">
-                {t('header.prototype')}
               </Link>
               <div className="mt-2 flex items-center justify-between border-t border-border pt-4">
                 <button
