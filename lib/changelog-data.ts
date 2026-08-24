@@ -4,67 +4,85 @@ export type ChangelogSection = {
 }
 
 export type ChangelogEntry = {
-  version: { zh: string; en: string }
+  version: string
   date: { zh: string; en: string }
   sections: ChangelogSection[]
 }
 
 export const changelog: ChangelogEntry[] = [
   {
-    version: { zh: 'v0.1.0', en: 'v0.1.0' },
+    version: 'V0.3.0',
     date: { zh: '2026 年 8 月 21 日', en: 'AUG 21, 2026' },
     sections: [
       {
         type: 'features',
         items: [
-          { zh: '新增 Skill 市场，可搜索 ClawHub 并直接加入技能库', en: 'Added Skill discovery and installation from ClawHub' },
-          { zh: '安装前可查看版本、安全状态、运行要求和完整说明', en: 'Review versions, security status, requirements, and documentation before installing' },
+          { zh: '新增 ClawHub Skill 市场', en: 'Added the ClawHub Skill market' },
+          { zh: '支持安装前查看 Skill 详情', en: 'Added pre-install Skill details' },
         ],
       },
       {
         type: 'improvements',
         items: [
-          { zh: '统一在线查找与本地导入入口，并简化应用导航', en: 'Unified online discovery and local imports with simpler navigation' },
-          { zh: '许可验证支持离线状态，并会在联网后自动重试', en: 'License verification now handles offline use and retries automatically' },
+          { zh: '整合在线搜索与本地导入', en: 'Unified online search and local imports' },
+          { zh: '优化许可证离线验证', en: 'Improved offline license verification' },
         ],
       },
       {
         type: 'fixes',
         items: [
-          { zh: '修复试用状态误判，并加强重复、冲突和异常安装包处理', en: 'Fixed incorrect trial states and strengthened duplicate, conflict, and package handling' },
+          { zh: '修复试用状态误判', en: 'Fixed incorrect trial states' },
+          { zh: '优化重复与冲突处理', en: 'Improved duplicate and conflict handling' },
+          { zh: '加强安装包安全校验', en: 'Strengthened package validation' },
         ],
       },
     ],
   },
   {
-    version: { zh: '预览版 · 2026.06', en: 'Preview · 2026.06' },
+    version: 'V0.2.0',
     date: { zh: '2026 年 6 月 18 日', en: 'JUN 18, 2026' },
     sections: [
       {
         type: 'features',
         items: [
-          { zh: '新增浅色主题，以及完整的试用与许可证激活流程', en: 'Added a light theme and complete trial and license activation flows' },
-          { zh: '新增 AI Skill 摘要，并支持在独立窗口查看完整文档', en: 'Added AI Skill summaries and a focused full-document view' },
+          { zh: '新增浅色主题', en: 'Added a light theme' },
+          { zh: '新增试用与许可证激活', en: 'Added trial and license activation' },
+          { zh: '新增 AI Skill 摘要', en: 'Added AI Skill summaries' },
         ],
       },
       {
         type: 'improvements',
         items: [
-          { zh: '优化 Loadout 创建、部署布局、详情面板和菜单栏同步', en: 'Improved Loadout creation, deployment layout, detail panels, and menu bar sync' },
+          { zh: '优化 Loadout 创建流程', en: 'Improved Loadout creation' },
+          { zh: '优化部署与详情布局', en: 'Refined deployment and detail layouts' },
+        ],
+      },
+      {
+        type: 'fixes',
+        items: [
+          { zh: '修复菜单栏状态不同步', en: 'Fixed menu bar sync' },
         ],
       },
     ],
   },
   {
-    version: { zh: '早期预览 · 2026.05', en: 'Early Preview · 2026.05' },
+    version: 'V0.1.0',
     date: { zh: '2026 年 5 月 29 日', en: 'MAY 29, 2026' },
     sections: [
       {
         type: 'features',
         items: [
-          { zh: '完成 Vault、Loadout 与多 Agent 部署的核心工作流', en: 'Introduced the core Vault, Loadout, and multi-Agent deployment workflow' },
-          { zh: '支持项目工作目录作为部署目标', en: 'Added project workspaces as deployment targets' },
-          { zh: '新增中英文界面和 Skill Map', en: 'Added Chinese and English interfaces plus Skill Map' },
+          { zh: '完成 Vault 与 Loadout', en: 'Introduced Vault and Loadout' },
+          { zh: '支持多 Agent 部署', en: 'Added multi-Agent deployment' },
+          { zh: '支持项目工作目录', en: 'Added project workspaces' },
+          { zh: '新增中英文界面', en: 'Added Chinese and English' },
+          { zh: '新增 Skill Map', en: 'Added Skill Map' },
+        ],
+      },
+      {
+        type: 'fixes',
+        items: [
+          { zh: '修复 Loadout 删除与选择问题', en: 'Fixed Loadout deletion and selection' },
         ],
       },
     ],
