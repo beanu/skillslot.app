@@ -207,7 +207,7 @@ export const en: Record<TranslationKey, string> = {
   // Changelog
   'changelog.eyebrow': 'Updates',
   'changelog.title': 'Changelog',
-  'changelog.subtitle': 'Every shipped release, newest first. Updates roll out automatically; this page is generated from the same feed your in-app updater reads.',
+  'changelog.subtitle': 'See what is new, improved, and fixed in each SkillSlot release.',
   'changelog.fixes': 'Fixes',
   'changelog.features': 'Features',
   'changelog.improvements': 'Improvements',

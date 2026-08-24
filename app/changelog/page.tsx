@@ -19,7 +19,7 @@ export default function ChangelogPage() {
 
   return (
     <main className="min-h-screen bg-background">
-      <Header />
+      <Header sectionBase="/" />
 
       {/* Background glow */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
@@ -79,7 +79,7 @@ export default function ChangelogPage() {
                     {entry.version}
                   </span>
                   <span className="text-sm uppercase tracking-wider text-muted-foreground/60">
-                    {entry.date}
+                    {locale === 'zh' ? entry.date.zh : entry.date.en}
                   </span>
                 </div>
 
@@ -110,7 +110,7 @@ export default function ChangelogPage() {
         </div>
       </div>
 
-      <Footer />
+      <Footer sectionBase="/" />
     </main>
   )
 }

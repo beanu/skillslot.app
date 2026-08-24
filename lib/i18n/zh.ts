@@ -205,7 +205,7 @@ export const zh = {
   // Changelog
   'changelog.eyebrow': '更新记录',
   'changelog.title': 'Changelog',
-  'changelog.subtitle': '每一次发布的更新日志，最新版本在前。更新自动推送；此页面与应用内更新器读取的是同一份数据源。',
+  'changelog.subtitle': '了解 SkillSlot 每个版本带来的新功能、体验改进与问题修复。',
   'changelog.fixes': '修复',
   'changelog.features': '新功能',
   'changelog.improvements': '优化',
