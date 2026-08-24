@@ -4,40 +4,67 @@ export type ChangelogSection = {
 }
 
 export type ChangelogEntry = {
-  version: string
+  version: { zh: string; en: string }
   date: { zh: string; en: string }
   sections: ChangelogSection[]
 }
 
 export const changelog: ChangelogEntry[] = [
   {
-    version: 'v0.1.0',
+    version: { zh: 'v0.1.0', en: 'v0.1.0' },
     date: { zh: '2026 年 8 月 21 日', en: 'AUG 21, 2026' },
     sections: [
       {
         type: 'features',
         items: [
-          { zh: '新增“添加技能”中心，可直接搜索 ClawHub，从社区发现并添加 Skill', en: 'Added the Add Skills center for discovering and installing community Skills from ClawHub' },
-          { zh: '安装前可查看发布者、版本、下载量、安全状态、运行要求和完整 SKILL.md', en: 'Review the publisher, version, downloads, security status, requirements, and full SKILL.md before installing' },
-          { zh: 'Skill 加入技能库后，可立即打开详情并部署到目标 Agent', en: 'Open an installed Skill immediately and deploy it to a target Agent' },
+          { zh: '新增 Skill 市场，可搜索 ClawHub 并直接加入技能库', en: 'Added Skill discovery and installation from ClawHub' },
+          { zh: '安装前可查看版本、安全状态、运行要求和完整说明', en: 'Review versions, security status, requirements, and documentation before installing' },
         ],
       },
       {
         type: 'improvements',
         items: [
-          { zh: '重新整理应用导航，技能库、添加技能、部署和设置更容易找到', en: 'Reorganized navigation so the Skill Library, Add Skills, Deployments, and Settings are easier to find' },
-          { zh: '在线查找与本地导入统一到同一个入口，管理不同来源的 Skill 更顺手', en: 'Brought online discovery and local imports into one clear entry point' },
-          { zh: '许可与试用状态更加清晰；离线时继续使用最近一次验证结果，并在联网后自动重试', en: 'Made license and trial status clearer, with cached offline status and automatic retry when you reconnect' },
-          { zh: '更新 SkillSlot 应用图标，并优化主窗口尺寸和整体布局', en: 'Updated the SkillSlot app icon and refined the main window layout' },
+          { zh: '统一在线查找与本地导入入口，并简化应用导航', en: 'Unified online discovery and local imports with simpler navigation' },
+          { zh: '许可验证支持离线状态，并会在联网后自动重试', en: 'License verification now handles offline use and retries automatically' },
         ],
       },
       {
         type: 'fixes',
         items: [
-          { zh: '修复许可证服务暂时不可用时，试用状态可能被错误显示为已过期的问题', en: 'Fixed trial status sometimes appearing expired when the license service was temporarily unavailable' },
-          { zh: '改进重复 Skill 和名称冲突提示，避免误装或覆盖已有内容', en: 'Improved duplicate and name-conflict handling to prevent accidental installs or overwrites' },
-          { zh: '安装失败时会自动清理未完成内容，不在技能库中留下残缺文件', en: 'Clean up incomplete files automatically when an installation fails' },
-          { zh: '加强 Skill 安装包检查，拦截异常路径、符号链接和超出限制的文件', en: 'Strengthened package checks against unsafe paths, symbolic links, and oversized files' },
+          { zh: '修复试用状态误判，并加强重复、冲突和异常安装包处理', en: 'Fixed incorrect trial states and strengthened duplicate, conflict, and package handling' },
+        ],
+      },
+    ],
+  },
+  {
+    version: { zh: '预览版 · 2026.06', en: 'Preview · 2026.06' },
+    date: { zh: '2026 年 6 月 18 日', en: 'JUN 18, 2026' },
+    sections: [
+      {
+        type: 'features',
+        items: [
+          { zh: '新增浅色主题，以及完整的试用与许可证激活流程', en: 'Added a light theme and complete trial and license activation flows' },
+          { zh: '新增 AI Skill 摘要，并支持在独立窗口查看完整文档', en: 'Added AI Skill summaries and a focused full-document view' },
+        ],
+      },
+      {
+        type: 'improvements',
+        items: [
+          { zh: '优化 Loadout 创建、部署布局、详情面板和菜单栏同步', en: 'Improved Loadout creation, deployment layout, detail panels, and menu bar sync' },
+        ],
+      },
+    ],
+  },
+  {
+    version: { zh: '早期预览 · 2026.05', en: 'Early Preview · 2026.05' },
+    date: { zh: '2026 年 5 月 29 日', en: 'MAY 29, 2026' },
+    sections: [
+      {
+        type: 'features',
+        items: [
+          { zh: '完成 Vault、Loadout 与多 Agent 部署的核心工作流', en: 'Introduced the core Vault, Loadout, and multi-Agent deployment workflow' },
+          { zh: '支持项目工作目录作为部署目标', en: 'Added project workspaces as deployment targets' },
+          { zh: '新增中英文界面和 Skill Map', en: 'Added Chinese and English interfaces plus Skill Map' },
         ],
       },
     ],

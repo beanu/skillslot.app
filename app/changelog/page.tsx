@@ -61,7 +61,7 @@ export default function ChangelogPage() {
         <div className="space-y-0">
           {changelog.map((entry, entryIndex) => (
             <motion.article
-              key={entry.version}
+              key={entry.version.en}
               className="relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ export default function ChangelogPage() {
                 {/* Version + date */}
                 <div className="mb-6 flex items-center gap-4">
                   <span className="inline-flex items-center rounded-md border border-border bg-secondary/50 px-2.5 py-1 font-mono text-sm font-medium text-foreground">
-                    {entry.version}
+                    {locale === 'zh' ? entry.version.zh : entry.version.en}
                   </span>
                   <span className="text-sm uppercase tracking-wider text-muted-foreground/60">
                     {locale === 'zh' ? entry.date.zh : entry.date.en}
@@ -86,7 +86,7 @@ export default function ChangelogPage() {
                 {/* Sections */}
                 <div className="space-y-6">
                   {entry.sections.map((section, sectionIndex) => (
-                    <div key={`${entry.version}-${section.type}-${sectionIndex}`}>
+                    <div key={`${entry.version.en}-${section.type}-${sectionIndex}`}>
                       <h3 className="mb-3 text-xs font-medium uppercase tracking-[0.15em] text-primary">
                         {t(sectionTypeMap[section.type])}
                       </h3>
