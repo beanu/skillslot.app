@@ -93,29 +93,36 @@ export function Hero() {
 
           {/* CTA Buttons */}
           <motion.div
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
+            className={SKILLSLOT_DOWNLOAD_URL
+              ? 'mt-10 grid grid-cols-1 justify-items-center gap-x-4 gap-y-2 sm:grid-cols-[auto_auto]'
+              : 'mt-10 flex justify-center'}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
             {SKILLSLOT_DOWNLOAD_URL && (
-              <Button
-                asChild
-                size="lg"
-                className="group bg-foreground px-8 text-background hover:bg-foreground/90"
-              >
-                <a href={SKILLSLOT_DOWNLOAD_URL}>
-                  <Apple className="mr-2 h-5 w-5" aria-hidden="true" />
-                  {t('hero.cta.download')}
-                </a>
-              </Button>
+              <>
+                <Button
+                  asChild
+                  size="lg"
+                  className="group bg-foreground px-8 text-background hover:bg-foreground/90 sm:col-start-1 sm:row-start-1"
+                >
+                  <a href={SKILLSLOT_DOWNLOAD_URL}>
+                    <Apple className="mr-2 h-5 w-5" aria-hidden="true" />
+                    {t('hero.cta.download')}
+                  </a>
+                </Button>
+                <span className="text-xs text-muted-foreground sm:col-start-1 sm:row-start-2">
+                  {t('hero.cta.size')}
+                </span>
+              </>
             )}
             <Button
               asChild
               variant={SKILLSLOT_DOWNLOAD_URL ? 'outline' : 'default'}
               size="lg"
               className={SKILLSLOT_DOWNLOAD_URL
-                ? 'border-border px-8 text-foreground hover:bg-secondary'
+                ? 'mt-2 border-border px-8 text-foreground hover:bg-secondary sm:col-start-2 sm:row-start-1 sm:mt-0'
                 : 'bg-foreground px-8 text-background hover:bg-foreground/90'}
             >
               <a href="#pricing">{t('hero.cta.pricing')}</a>
