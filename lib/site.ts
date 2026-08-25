@@ -9,7 +9,8 @@ export const SKILLSLOT_X_URL = 'https://x.com/robot_yz'
 export const CREEM_BUYER_TERMS_URL = 'https://www.creem.io/buyer-terms'
 
 const configuredDownloadUrl = process.env.NEXT_PUBLIC_SKILLSLOT_DOWNLOAD_URL?.trim()
+const defaultDownloadUrl = 'https://d.skillslot.app/SkillSlot_0.1.0_aarch64.dmg'
 
-// Render download CTAs only after a public, reviewer-accessible artifact URL
-// has been configured. Missing or private releases must not become dead links.
-export const SKILLSLOT_DOWNLOAD_URL = configuredDownloadUrl || null
+// Keep the public release available by default while allowing deployments to
+// override it when publishing a newer macOS build.
+export const SKILLSLOT_DOWNLOAD_URL = configuredDownloadUrl || defaultDownloadUrl
