@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/lib/i18n/context'
+import { SKILLSLOT_SITE_URL } from '@/lib/site'
 import './globals.css'
 
 const geistSans = Geist({
@@ -21,9 +22,19 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SKILLSLOT_SITE_URL),
   title: 'SkillSlot - 让本地 Agent Skills 可见、可懂、可组合、可部署',
   description: '让散落在本地的 Agent Skills 变得可见、可懂、可组合、可部署。支持 Claude Code、Codex、Gemini。',
-  generator: 'v0.app',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'SkillSlot',
+    title: 'SkillSlot - Agent Skill 管理与部署',
+    description: '把本地 Agent Skills 收进一个 Vault，组合成 Loadout，并部署到你正在使用的 AI 编程 Agent。',
+  },
   keywords: ['SkillSlot', 'AI Agent', 'Claude Code', 'Codex', 'Gemini', 'Mac App', 'Skills Management'],
   authors: [{ name: 'SkillSlot Team' }],
   icons: {

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { FileText, Clock, Shuffle, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
+import Link from 'next/link'
 
 export function WelcomeCard() {
   const t = useT()
@@ -156,9 +157,11 @@ export function WelcomeCard() {
             </div>
 
             <div className="mt-8">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-                {t('welcome.learnMore')}
-                <ArrowRight className="ml-2 h-4 w-4" />
+              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
+                <Link href="/faq">
+                  {t('welcome.learnMore')}
+                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Link>
               </Button>
             </div>
           </motion.div>

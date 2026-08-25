@@ -19,6 +19,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
+import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
 
 export function Hero() {
   const t = useT()
@@ -97,19 +98,27 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
+            {SKILLSLOT_DOWNLOAD_URL && (
+              <Button
+                asChild
+                size="lg"
+                className="group bg-foreground px-8 text-background hover:bg-foreground/90"
+              >
+                <a href={SKILLSLOT_DOWNLOAD_URL}>
+                  <Apple className="mr-2 h-5 w-5" aria-hidden="true" />
+                  {t('hero.cta.download')}
+                </a>
+              </Button>
+            )}
             <Button
+              asChild
+              variant={SKILLSLOT_DOWNLOAD_URL ? 'outline' : 'default'}
               size="lg"
-              className="group bg-foreground px-8 text-background hover:bg-foreground/90"
+              className={SKILLSLOT_DOWNLOAD_URL
+                ? 'border-border px-8 text-foreground hover:bg-secondary'
+                : 'bg-foreground px-8 text-background hover:bg-foreground/90'}
             >
-              <Apple className="mr-2 h-5 w-5" />
-              {t('hero.cta.download')}
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-border px-8 text-foreground hover:bg-secondary"
-            >
-              {t('hero.cta.pricing')}
+              <a href="#pricing">{t('hero.cta.pricing')}</a>
             </Button>
           </motion.div>
 
@@ -121,12 +130,15 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
           >
             <span className="text-xs uppercase tracking-wider">{t('hero.supports')}</span>
-            <div className="flex items-center gap-6">
-              <span className="font-mono font-medium text-foreground/80">Claude Code</span>
-              <span className="h-1 w-1 rounded-full bg-border" />
-              <span className="font-mono font-medium text-foreground/80">Codex</span>
-              <span className="h-1 w-1 rounded-full bg-border" />
-              <span className="font-mono font-medium text-foreground/80">Gemini</span>
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+              {['Claude Code', 'Codex', 'Amp', 'Hermess', 'Pi', 'WorkBuddy'].map((agent) => (
+                <span key={agent} className="font-mono font-medium text-foreground/80">
+                  {agent}
+                </span>
+              ))}
+              <span className="font-mono font-medium text-muted-foreground">
+                {t('hero.supports.more')}
+              </span>
             </div>
           </motion.div>
         </div>

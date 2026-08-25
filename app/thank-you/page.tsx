@@ -7,7 +7,7 @@ import { Footer } from '@/components/landing/footer'
 import { Header } from '@/components/landing/header'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
-import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
+import { SKILLSLOT_DOWNLOAD_URL, SKILLSLOT_SUPPORT_EMAIL } from '@/lib/site'
 
 const stepKeys = [
   {
@@ -76,12 +76,14 @@ export default function ThankYouPage() {
           </div>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild size="lg" className="w-full bg-foreground px-7 text-background hover:bg-foreground/90 sm:w-auto">
-              <a href={SKILLSLOT_DOWNLOAD_URL}>
-                <Apple className="h-4 w-4" aria-hidden="true" />
-                {t('thankYou.download')}
-              </a>
-            </Button>
+            {SKILLSLOT_DOWNLOAD_URL && (
+              <Button asChild size="lg" className="w-full bg-foreground px-7 text-background hover:bg-foreground/90 sm:w-auto">
+                <a href={SKILLSLOT_DOWNLOAD_URL}>
+                  <Apple className="h-4 w-4" aria-hidden="true" />
+                  {t('thankYou.download')}
+                </a>
+              </Button>
+            )}
             <Button asChild variant="outline" size="lg" className="w-full px-7 sm:w-auto">
               <Link href="/">
                 {t('thankYou.backHome')}
@@ -92,8 +94,8 @@ export default function ThankYouPage() {
 
           <p className="mt-7 text-center text-xs leading-relaxed text-muted-foreground/70">
             {t('thankYou.help')}{' '}
-            <a className="underline underline-offset-4 hover:text-foreground" href="mailto:hi@skillslot.app">
-              hi@skillslot.app
+            <a className="underline underline-offset-4 hover:text-foreground" href={`mailto:${SKILLSLOT_SUPPORT_EMAIL}`}>
+              {SKILLSLOT_SUPPORT_EMAIL}
             </a>
           </p>
         </motion.div>

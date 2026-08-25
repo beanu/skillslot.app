@@ -6,6 +6,7 @@ import { Check, ChevronRight, Folder, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
 import type { TranslationKey } from '@/lib/i18n/zh'
+import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
 
 const stepKeys: { id: string; titleKey: TranslationKey; descKey: TranslationKey }[] = [
   { id: 'scan', titleKey: 'demo.step1.title', descKey: 'demo.step1.desc' },
@@ -95,11 +96,14 @@ export function Demo() {
 
             <div className="pt-4">
               <Button
+                asChild
                 size="lg"
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 sm:w-auto"
               >
-                {t('demo.cta')}
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <a href={SKILLSLOT_DOWNLOAD_URL || '#pricing'}>
+                  {SKILLSLOT_DOWNLOAD_URL ? t('demo.cta') : t('hero.cta.pricing')}
+                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </a>
               </Button>
             </div>
           </motion.div>

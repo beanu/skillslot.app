@@ -6,7 +6,12 @@ import { Check, LoaderCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage, useT } from '@/lib/i18n/context'
 import type { TranslationKey } from '@/lib/i18n/zh'
-import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
+import Link from 'next/link'
+import {
+  CREEM_BUYER_TERMS_URL,
+  SKILLSLOT_DOWNLOAD_URL,
+  SKILLSLOT_SUPPORT_EMAIL,
+} from '@/lib/site'
 
 type PlanId = 'mac_1' | 'mac_2' | 'mac_3'
 
@@ -17,11 +22,11 @@ const tiers = [
 ]
 
 const featureKeys: TranslationKey[] = [
-  'pricing.feature.agents',
-  'pricing.feature.approval',
-  'pricing.feature.terminal',
-  'pricing.feature.sessions',
-  'pricing.feature.native',
+  'pricing.feature.imports',
+  'pricing.feature.loadouts',
+  'pricing.feature.deploy',
+  'pricing.feature.skillMap',
+  'pricing.feature.autoCategorize',
 ]
 
 export function Pricing() {
@@ -207,6 +212,29 @@ export function Pricing() {
               ))}
             </ul>
 
+            <div className="mb-5 space-y-1.5 text-xs leading-relaxed text-muted-foreground">
+              <p>{t('pricing.legal.processed')}</p>
+              <p>
+                {t('pricing.legal.agreement')}{' '}
+                <Link href="/terms" className="underline underline-offset-2 hover:text-foreground">
+                  {t('pricing.legal.terms')}
+                </Link>
+                {locale === 'zh' ? '、' : ', '}
+                <Link href="/privacy" className="underline underline-offset-2 hover:text-foreground">
+                  {t('pricing.legal.privacy')}
+                </Link>
+                {locale === 'zh' ? '、' : ', '}
+                <Link href="/refund-policy" className="underline underline-offset-2 hover:text-foreground">
+                  {t('pricing.legal.refund')}
+                </Link>
+                {locale === 'zh' ? ' 和 ' : ', and '}
+                <a href={CREEM_BUYER_TERMS_URL} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-foreground">
+                  {t('pricing.legal.creem')}
+                </a>
+                {locale === 'zh' ? '。' : '.'}
+              </p>
+            </div>
+
             {/* CTA button */}
             <Button
               type="button"
@@ -233,18 +261,20 @@ export function Pricing() {
               {checkoutError}
             </p>
 
-            {/* Trial link */}
-            <p className="mt-4 text-center text-sm text-muted-foreground">
-              <a href={SKILLSLOT_DOWNLOAD_URL} className="transition-colors hover:text-foreground">
-                {t('pricing.trialLink')}
-              </a>
-            </p>
+            {/* Trial link is shown only when a public download is configured. */}
+            {SKILLSLOT_DOWNLOAD_URL && (
+              <p className="mt-4 text-center text-sm text-muted-foreground">
+                <a href={SKILLSLOT_DOWNLOAD_URL} className="transition-colors hover:text-foreground">
+                  {t('pricing.trialLink')}
+                </a>
+              </p>
+            )}
 
             {/* Payment issues */}
             <p className="mt-3 text-center text-xs text-muted-foreground/60">
               {t('pricing.paymentIssues')}{' '}
-              <a href="mailto:hi@skillslot.app" className="underline underline-offset-2 transition-colors hover:text-muted-foreground">
-                hi@skillslot.app
+              <a href={`mailto:${SKILLSLOT_SUPPORT_EMAIL}`} className="underline underline-offset-2 transition-colors hover:text-muted-foreground">
+                {SKILLSLOT_SUPPORT_EMAIL}
               </a>
             </p>
 
