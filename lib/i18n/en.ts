@@ -149,7 +149,6 @@ export const en: Record<TranslationKey, string> = {
   'welcome.local.desc': 'All data stored locally, no account needed, privacy protected',
   'welcome.buyOnce.title': 'Buy Once',
   'welcome.buyOnce.desc': 'No subscriptions — license follows your device, yours forever',
-  'welcome.learnMore': 'Read the FAQ',
 
   // Pricing
   'pricing.eyebrow': 'Pricing',
@@ -167,12 +166,6 @@ export const en: Record<TranslationKey, string> = {
   'pricing.feature.deploy': 'Deploy to every supported Agent',
   'pricing.feature.skillMap': 'Generate Skill Map reports',
   'pricing.feature.autoCategorize': 'AI categorization with automatic Loadout creation',
-  'pricing.legal.processed': 'Payments are processed by Creem as the Merchant of Record.',
-  'pricing.legal.agreement': 'By purchasing, you agree to the',
-  'pricing.legal.terms': 'Terms of Service',
-  'pricing.legal.privacy': 'Privacy Policy',
-  'pricing.legal.refund': 'Refund Policy',
-  'pricing.legal.creem': 'Creem Buyer Terms',
   'pricing.cta': 'Get Early Bird Price',
   'pricing.openingCheckout': 'Opening secure checkout…',
   'pricing.checkoutError': 'Checkout is temporarily unavailable. Please try again.',

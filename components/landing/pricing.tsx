@@ -6,9 +6,7 @@ import { Check, LoaderCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage, useT } from '@/lib/i18n/context'
 import type { TranslationKey } from '@/lib/i18n/zh'
-import Link from 'next/link'
 import {
-  CREEM_BUYER_TERMS_URL,
   SKILLSLOT_DOWNLOAD_URL,
   SKILLSLOT_SUPPORT_EMAIL,
 } from '@/lib/site'
@@ -211,29 +209,6 @@ export function Pricing() {
                 </li>
               ))}
             </ul>
-
-            <div className="mb-5 space-y-1.5 text-xs leading-relaxed text-muted-foreground">
-              <p>{t('pricing.legal.processed')}</p>
-              <p>
-                {t('pricing.legal.agreement')}{' '}
-                <Link href="/terms" className="underline underline-offset-2 hover:text-foreground">
-                  {t('pricing.legal.terms')}
-                </Link>
-                {locale === 'zh' ? '、' : ', '}
-                <Link href="/privacy" className="underline underline-offset-2 hover:text-foreground">
-                  {t('pricing.legal.privacy')}
-                </Link>
-                {locale === 'zh' ? '、' : ', '}
-                <Link href="/refund-policy" className="underline underline-offset-2 hover:text-foreground">
-                  {t('pricing.legal.refund')}
-                </Link>
-                {locale === 'zh' ? ' 和 ' : ', and '}
-                <a href={CREEM_BUYER_TERMS_URL} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-foreground">
-                  {t('pricing.legal.creem')}
-                </a>
-                {locale === 'zh' ? '。' : '.'}
-              </p>
-            </div>
 
             {/* CTA button */}
             <Button

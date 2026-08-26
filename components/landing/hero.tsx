@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import {
   Apple,
   Bot,
@@ -20,9 +20,11 @@ import {
 import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
 import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
+import { HeroSkillField } from '@/components/landing/hero-skill-field'
 
 export function Hero() {
   const t = useT()
+  const reduceMotion = useReducedMotion()
   const [activeTab, setActiveTab] = useState<'all' | 'test' | 'daily'>('test')
   const [query, setQuery] = useState('')
   const [selectedSkill, setSelectedSkill] = useState('skill-map')
@@ -49,20 +51,17 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden pt-16">
-      {/* Background gradient */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      </div>
+      <HeroSkillField />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col items-center justify-center px-6 py-20">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col items-center justify-center px-6 py-20">
         {/* Main content */}
         <div className="flex flex-col items-center text-center">
           {/* Pixel-style headline */}
           <motion.h1
             className="font-mono text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={reduceMotion ? false : { y: 24 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="text-foreground">{t('hero.title1')}</span>
@@ -71,8 +70,8 @@ export function Hero() {
 
           <motion.h2
             className="mt-2 font-mono text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={reduceMotion ? false : { y: 24 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="text-foreground">{t('hero.title2')}</span>
@@ -82,8 +81,8 @@ export function Hero() {
           {/* Subtitle */}
           <motion.p
             className="mt-8 max-w-2xl text-balance text-lg leading-relaxed text-muted-foreground md:text-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={reduceMotion ? false : { y: 16 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             {t('hero.subtitle1')}
@@ -96,8 +95,8 @@ export function Hero() {
             className={SKILLSLOT_DOWNLOAD_URL
               ? 'mt-10 grid grid-cols-1 justify-items-center gap-x-4 gap-y-2 sm:grid-cols-[auto_auto]'
               : 'mt-10 flex justify-center'}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={reduceMotion ? false : { y: 16 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
             {SKILLSLOT_DOWNLOAD_URL && (
@@ -132,9 +131,6 @@ export function Hero() {
           {/* Supported agents */}
           <motion.div
             className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
           >
             <span className="text-xs uppercase tracking-wider">{t('hero.supports')}</span>
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
@@ -153,8 +149,8 @@ export function Hero() {
         {/* App Preview */}
         <motion.div
           className="relative mt-16 w-full min-w-0 max-w-6xl"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={reduceMotion ? false : { y: 32, scale: 0.99 }}
+          animate={{ y: 0, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="relative min-w-0 overflow-hidden rounded-xl border border-border bg-[#0d0f0c] shadow-2xl shadow-black/40">

@@ -147,7 +147,6 @@ export const zh = {
   'welcome.local.desc': '数据全部存储在本地，无需账号，保护隐私',
   'welcome.buyOnce.title': '一次买断',
   'welcome.buyOnce.desc': '不做订阅，许可证跟设备走，终身可用',
-  'welcome.learnMore': '查看常见问题',
 
   // Pricing
   'pricing.eyebrow': '定价方案',
@@ -165,12 +164,6 @@ export const zh = {
   'pricing.feature.deploy': '部署到所有支持的 Agent',
   'pricing.feature.skillMap': '生成 Skill Map 分析报告',
   'pricing.feature.autoCategorize': 'AI 自动分类并创建 Loadout',
-  'pricing.legal.processed': '支付由 Creem 作为 Merchant of Record 处理。',
-  'pricing.legal.agreement': '购买即表示你同意',
-  'pricing.legal.terms': '服务条款',
-  'pricing.legal.privacy': '隐私政策',
-  'pricing.legal.refund': '退款政策',
-  'pricing.legal.creem': 'Creem Buyer Terms',
   'pricing.cta': '获取早鸟价',
   'pricing.openingCheckout': '正在前往安全支付…',
   'pricing.checkoutError': '暂时无法打开支付页面，请稍后重试。',

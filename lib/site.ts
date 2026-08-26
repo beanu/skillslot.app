@@ -6,8 +6,6 @@ export const SKILLSLOT_GITHUB_URL = 'https://github.com/beanu/skillslot.app'
 
 export const SKILLSLOT_X_URL = 'https://x.com/robot_yz'
 
-export const CREEM_BUYER_TERMS_URL = 'https://www.creem.io/buyer-terms'
-
 const configuredDownloadUrl = process.env.NEXT_PUBLIC_SKILLSLOT_DOWNLOAD_URL?.trim()
 const defaultDownloadUrl = 'https://d.skillslot.app/SkillSlot_0.1.0_aarch64.dmg'
 
