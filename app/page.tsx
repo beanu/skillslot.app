@@ -6,6 +6,7 @@ import { SkillShowcase } from '@/components/landing/skill-showcase'
 import { MenuBarPreview } from '@/components/landing/menu-bar-preview'
 import { WelcomeCard } from '@/components/landing/welcome-card'
 import { Pricing } from '@/components/landing/pricing'
+import { FAQ } from '@/components/landing/faq'
 import { Footer } from '@/components/landing/footer'
 
 export default function HomePage() {
@@ -18,6 +19,7 @@ export default function HomePage() {
       <SkillShowcase />
       <MenuBarPreview />
       <WelcomeCard />
+      <FAQ />
       <Pricing />
       <Footer />
     </main>

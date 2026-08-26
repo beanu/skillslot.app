@@ -158,7 +158,7 @@ export function WelcomeCard() {
 
             <div className="mt-8">
               <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-                <Link href="/faq">
+                <Link href="#faq">
                   {t('welcome.learnMore')}
                   <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                 </Link>

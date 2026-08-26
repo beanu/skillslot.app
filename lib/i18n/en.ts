@@ -149,7 +149,7 @@ export const en: Record<TranslationKey, string> = {
   'welcome.local.desc': 'All data stored locally, no account needed, privacy protected',
   'welcome.buyOnce.title': 'Buy Once',
   'welcome.buyOnce.desc': 'No subscriptions — license follows your device, yours forever',
-  'welcome.learnMore': 'Learn More',
+  'welcome.learnMore': 'Read the FAQ',
 
   // Pricing
   'pricing.eyebrow': 'Pricing',

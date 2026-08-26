@@ -488,7 +488,7 @@ export const contactPage: PublicPageData = {
       id: 'self-service',
       title: { zh: '常用帮助', en: 'Common help' },
       links: [
-        { label: { zh: '查看常见问题', en: 'Read the FAQ' }, href: '/faq' },
+        { label: { zh: '查看常见问题', en: 'Read the FAQ' }, href: '/#faq' },
         { label: { zh: '查看退款政策', en: 'Read the Refund Policy' }, href: '/refund-policy' },
         { label: { zh: '查看隐私政策', en: 'Read the Privacy Policy' }, href: '/privacy' },
       ],

@@ -147,7 +147,7 @@ export const zh = {
   'welcome.local.desc': '数据全部存储在本地，无需账号，保护隐私',
   'welcome.buyOnce.title': '一次买断',
   'welcome.buyOnce.desc': '不做订阅，许可证跟设备走，终身可用',
-  'welcome.learnMore': '了解更多',
+  'welcome.learnMore': '查看常见问题',
 
   // Pricing
   'pricing.eyebrow': '定价方案',

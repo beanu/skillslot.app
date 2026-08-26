@@ -6,7 +6,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     '',
     '/changelog',
-    '/faq',
     '/contact',
     '/privacy',
     '/terms',

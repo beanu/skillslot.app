@@ -22,7 +22,7 @@ export function Footer({ sectionBase = '' }: { sectionBase?: string }) {
   ]
 
   const supportLinks = [
-    { label: t('footer.support.faq'), href: '/faq' },
+    { label: t('footer.support.faq'), href: `${sectionBase}#faq` },
     { label: t('footer.support.contact'), href: '/contact' },
     { label: t('footer.support.privacy'), href: '/privacy' },
     { label: t('footer.support.terms'), href: '/terms' },
@@ -154,9 +154,15 @@ export function Footer({ sectionBase = '' }: { sectionBase?: string }) {
               <ul className="space-y-3">
                 {supportLinks.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                      {link.label}
-                    </Link>
+                    {link.href.startsWith('/') ? (
+                      <Link href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
