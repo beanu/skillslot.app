@@ -24,7 +24,7 @@ const featureKeys: TranslationKey[] = [
   'pricing.feature.loadouts',
   'pricing.feature.deploy',
   'pricing.feature.skillMap',
-  'pricing.feature.autoCategorize',
+  'pricing.feature.aiLoadouts',
 ]
 
 export function Pricing() {

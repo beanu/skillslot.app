@@ -71,8 +71,8 @@ export const privacyPage: PublicPageData = {
       title: { zh: '3. 在线功能处理的数据', en: '3. Data processed by online features' },
       paragraphs: [
         {
-          zh: '使用 Skill 摘要、AI 自动分类或 Skill Map 报告时，SkillSlot 会向 SkillSlot API 发送完成请求所需的内容。摘要请求可能包含 SKILL.md 内容、Skill 名称、标识和校验值；分类和报告请求可能包含 Skill 名称、slug 和描述。请不要在 Skill 文件中保存密码、API Key 或其他秘密。',
-          en: 'When you use Skill summaries, AI categorization, or Skill Map reports, SkillSlot sends the content needed to complete the request to the SkillSlot API. Summary requests may include SKILL.md content, the Skill name, identifier, and checksum. Categorization and report requests may include Skill names, slugs, and descriptions. Do not store passwords, API keys, or other secrets in Skill files.',
+          zh: '使用 Skill 摘要或 AI 技能地图分类时，SkillSlot 会向 SkillSlot API 发送完成请求所需的内容。摘要请求可能包含 SKILL.md 内容、Skill 名称、标识和校验值；技能地图分类请求可能包含 Skill 名称、slug 和描述。请不要在 Skill 文件中保存密码、API Key 或其他秘密。',
+          en: 'When you use Skill summaries or AI Skill Map categorization, SkillSlot sends the content needed to complete the request to the SkillSlot API. Summary requests may include SKILL.md content, the Skill name, identifier, and checksum. Skill Map categorization requests may include Skill names, slugs, and descriptions. Do not store passwords, API keys, or other secrets in Skill files.',
         },
         {
           zh: '使用 Skill 市场搜索或安装时，请求会发送到对应的第三方 Skill 来源，例如 ClawHub。第三方来源会按照其自己的隐私政策处理请求。',
@@ -200,8 +200,8 @@ export const termsPage: PublicPageData = {
       title: { zh: '2. 产品与本地优先模式', en: '2. Product and local-first operation' },
       paragraphs: [
         {
-          zh: 'SkillSlot 是一款用于发现、理解、组织和部署本地 Agent Skills 的 macOS 应用。基础数据主要保存在你的 Mac 上，部分明确标识的摘要、分类、报告、市场、试用和 License 功能需要联网。',
-          en: 'SkillSlot is a macOS app for discovering, understanding, organising, and deploying local Agent Skills. Core data is primarily stored on your Mac. Certain clearly identified summary, categorisation, reporting, market, trial, and license features require an internet connection.',
+          zh: 'SkillSlot 是一款用于发现、理解、组织和部署本地 Agent Skills 的 macOS 应用。基础数据主要保存在你的 Mac 上，部分明确标识的摘要、技能地图分类、市场、试用和 License 功能需要联网。',
+          en: 'SkillSlot is a macOS app for discovering, understanding, organising, and deploying local Agent Skills. Core data is primarily stored on your Mac. Certain clearly identified summary, Skill Map categorization, market, trial, and license features require an internet connection.',
         },
       ],
     },
@@ -218,7 +218,7 @@ export const termsPage: PublicPageData = {
         { zh: '最多导入 10 个 Skills。', en: 'Import up to 10 Skills.' },
         { zh: '最多创建 2 个 Loadout。', en: 'Create up to 2 Loadouts.' },
         { zh: '部署到一个 Agent。', en: 'Deploy to one Agent.' },
-        { zh: 'Skill Map 报告与 AI 自动分类需要有效试用或 License。', en: 'Skill Map reports and AI categorisation require an active trial or license.' },
+        { zh: 'AI 技能地图与分类需要有效试用或 License。', en: 'The AI Skill Map and categorization require an active trial or license.' },
       ],
     },
     {
@@ -519,8 +519,8 @@ export const faqPage: PublicPageData = {
       title: { zh: '我的 Skill 数据会上传吗？', en: 'Are my Skill files uploaded?' },
       paragraphs: [
         {
-          zh: 'Vault、Loadout 和部署数据主要保存在本地。基础管理和部署不会上传整个 Vault。使用摘要时可能发送相应 SKILL.md 内容，使用 AI 分类或报告时会发送 Skill 名称、slug 和描述。详情请查看隐私政策。',
-          en: 'Vault, Loadout, and deployment data is primarily stored locally. Basic management and deployment do not upload the entire Vault. Summaries may send the relevant SKILL.md content, while AI categorisation and reports send Skill names, slugs, and descriptions. See the Privacy Policy for details.',
+          zh: 'Vault、Loadout 和部署数据主要保存在本地。基础管理和部署不会上传整个 Vault。使用摘要时可能发送相应 SKILL.md 内容，使用 AI 技能地图分类时会发送 Skill 名称、slug 和描述。详情请查看隐私政策。',
+          en: 'Vault, Loadout, and deployment data is primarily stored locally. Basic management and deployment do not upload the entire Vault. Summaries may send the relevant SKILL.md content, while AI Skill Map categorization sends Skill names, slugs, and descriptions. See the Privacy Policy for details.',
         },
       ],
       links: [
@@ -542,8 +542,8 @@ export const faqPage: PublicPageData = {
       title: { zh: 'Free Mode 可以做什么？', en: 'What can I do in Free Mode?' },
       paragraphs: [
         {
-          zh: '你可以继续浏览、搜索和查看 Skills，最多导入 10 个 Skills、创建 2 个 Loadout，并部署到一个 Agent。Skill Map 报告和 AI 自动分类需要有效试用或 License。',
-          en: 'You can continue browsing, searching, and viewing Skills, import up to 10 Skills, create 2 Loadouts, and deploy to one Agent. Skill Map reports and AI categorisation require an active trial or license.',
+          zh: '你可以继续浏览、搜索和查看 Skills，最多导入 10 个 Skills、创建 2 个 Loadout，并部署到一个 Agent。AI 技能地图与分类需要有效试用或 License。',
+          en: 'You can continue browsing, searching, and viewing Skills, import up to 10 Skills, create 2 Loadouts, and deploy to one Agent. The AI Skill Map and categorization require an active trial or license.',
         },
       ],
     },
@@ -552,8 +552,8 @@ export const faqPage: PublicPageData = {
       title: { zh: 'License 解锁什么？', en: 'What does a license unlock?' },
       paragraphs: [
         {
-          zh: 'License 解锁无限 Skill 导入、无限 Loadout、部署到所有支持的 Agent、Skill Map 分析报告，以及 AI 自动分类并创建 Loadout。',
-          en: 'A license unlocks unlimited Skill imports, unlimited Loadouts, deployment to every supported Agent, Skill Map reports, and AI categorisation with automatic Loadout creation.',
+          zh: 'License 解锁无限 Skill 导入、无限 Loadout、部署到所有支持的 Agent、AI 技能地图，以及 AI 智能生成 Loadout。',
+          en: 'A license unlocks unlimited Skill imports, unlimited Loadouts, deployment to every supported Agent, the AI Skill Map, and AI-generated Loadouts.',
         },
       ],
     },
