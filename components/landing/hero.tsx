@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import {
-  Apple,
   Bot,
   Box,
   ChevronLeft,
@@ -11,6 +10,7 @@ import {
   FolderOpen,
   LayoutGrid,
   LockKeyhole,
+  Map as MapIcon,
   Plus,
   Rocket,
   Search,
@@ -21,33 +21,41 @@ import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
 import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
 import { HeroSkillField } from '@/components/landing/hero-skill-field'
+import { AppleDownloadIcon } from '@/components/apple-download-icon'
 import Image from 'next/image'
 
 export function Hero() {
   const t = useT()
   const reduceMotion = useReducedMotion()
-  const [activeTab, setActiveTab] = useState<'all' | 'test' | 'daily'>('test')
+  const [activeTab, setActiveTab] = useState<'all' | 'frontend'>('all')
   const [query, setQuery] = useState('')
-  const [selectedSkill, setSelectedSkill] = useState('skill-map')
+  const [selectedSkill, setSelectedSkill] = useState('frontend-design')
 
   const skills = [
     {
-      id: 'impeccable',
-      name: 'impeccable',
-      description: 'Design, redesign, shape, critique, audit, and polish product interfaces.',
+      id: 'grill-me',
+      name: 'grill-me',
+      description: t('hero.app.skill.grillMe.description'),
+      summary: t('hero.app.skill.grillMe.summary'),
+      whenToUse: t('hero.app.skill.grillMe.whenToUse'),
+      example: t('hero.app.skill.grillMe.example'),
       color: 'bg-primary',
     },
     {
-      id: 'skill-map',
-      name: 'ljg-skill-map',
-      description: 'Skill map viewer. Scans installed skills and renders a visual overview.',
+      id: 'frontend-design',
+      name: 'frontend-design',
+      description: t('hero.app.skill.frontendDesign.description'),
+      summary: t('hero.app.skill.frontendDesign.summary'),
+      whenToUse: t('hero.app.skill.frontendDesign.whenToUse'),
+      example: t('hero.app.skill.frontendDesign.example'),
       color: 'bg-chart-5',
     },
   ]
 
-  const visibleSkills = skills.filter((skill) =>
+  const visibleSkills = skills.filter((skill) => (
     skill.name.toLowerCase().includes(query.toLowerCase())
-  )
+    && (activeTab === 'all' || skill.id === 'frontend-design')
+  ))
   const currentSkill = skills.find((skill) => skill.id === selectedSkill) ?? skills[1]
 
   return (
@@ -108,7 +116,7 @@ export function Hero() {
                   className="group bg-foreground px-8 text-background hover:bg-foreground/90 sm:col-start-1 sm:row-start-1"
                 >
                   <a href={SKILLSLOT_DOWNLOAD_URL}>
-                    <Apple className="mr-2 h-5 w-5" aria-hidden="true" />
+                    <AppleDownloadIcon className="mr-2 h-5 w-5" />
                     {t('hero.cta.download')}
                   </a>
                 </Button>
@@ -181,6 +189,7 @@ export function Hero() {
                 <nav className="mt-8 space-y-1.5" aria-label="SkillSlot app preview navigation">
                   {[
                     { label: t('hero.app.nav.skills'), icon: LayoutGrid, active: true },
+                    { label: t('hero.app.nav.add'), icon: Plus, active: false },
                     { label: t('hero.app.nav.deploy'), icon: Rocket, active: false },
                     { label: t('hero.app.nav.settings'), icon: Settings, active: false },
                   ].map(({ label, icon: Icon, active }) => (
@@ -225,20 +234,15 @@ export function Hero() {
                       className="min-w-0 flex-1 bg-transparent text-xs text-white outline-none placeholder:text-white/35"
                     />
                   </label>
-                  <button type="button" className="hidden h-10 items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-3 text-[10px] text-white/45 hover:text-white sm:flex">
-                    <Sparkles className="h-3.5 w-3.5" />
-                    {t('hero.app.smartSort')}
-                  </button>
-                  <button type="button" aria-label={t('hero.app.new')} className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-white/50 hover:text-primary">
-                    <FileText className="h-4 w-4" />
+                  <button type="button" aria-label={t('hero.app.skillMap')} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-white/50 hover:text-primary">
+                    <MapIcon className="h-4 w-4" />
                   </button>
                 </div>
 
                 <div className="mt-4 flex flex-wrap items-center gap-2">
                   {[
-                    { id: 'all' as const, label: t('hero.app.tab.all'), count: 3, dot: '' },
-                    { id: 'test' as const, label: t('hero.app.tab.test'), count: 2, dot: 'bg-primary' },
-                    { id: 'daily' as const, label: t('hero.app.tab.daily'), count: 0, dot: 'bg-chart-5' },
+                    { id: 'all' as const, label: t('hero.app.tab.all'), count: 2, dot: '' },
+                    { id: 'frontend' as const, label: t('hero.app.loadout.frontend'), count: 1, dot: 'bg-chart-5' },
                   ].map((tab) => (
                     <button
                       key={tab.id}
@@ -259,7 +263,11 @@ export function Hero() {
                     <Plus className="h-3 w-3" />
                     {t('hero.app.new')}
                   </button>
-                  <LockKeyhole className="h-3 w-3 text-white/25" />
+                  <button type="button" className="flex items-center gap-1 rounded-md px-2 py-1.5 text-[10px] text-white/45 transition-colors hover:bg-white/[0.04] hover:text-white">
+                    <Sparkles className="h-3 w-3 text-primary" />
+                    {t('hero.app.organizeLoadouts')}
+                  </button>
+                  <LockKeyhole className="h-3 w-3 text-white/25" aria-label={t('hero.app.licenseRequired')} />
                 </div>
 
                 <div className="mt-5 overflow-hidden rounded-lg border border-white/12 bg-white/[0.025]">
@@ -293,7 +301,7 @@ export function Hero() {
                     </button>
                   ))}
                   {visibleSkills.length === 0 && (
-                    <div className="px-4 py-10 text-center text-xs text-white/35">No matching skills</div>
+                    <div className="px-4 py-10 text-center text-xs text-white/35">{t('hero.app.noMatches')}</div>
                   )}
                 </div>
               </div>
@@ -311,21 +319,24 @@ export function Hero() {
                   </div>
                 </div>
 
-                <p className="mt-3 text-[10px] leading-5 text-white/65">{currentSkill.description} Use it to understand, compose, and deploy the right capability at a glance.</p>
-
                 <div className="mt-5 rounded-lg border border-white/12 bg-white/[0.035] p-3.5">
                   <div className="flex items-center justify-between text-xs font-semibold text-white">
                     <span>{t('hero.app.summary')}</span>
                     <Sparkles className="h-3.5 w-3.5 text-primary" />
                   </div>
                   <p className="mt-3 text-[10px] leading-5 text-white/65">
-                    Visualizes installed skills with names, versions, descriptions, and categories so every capability is easy to find and understand.
+                    {currentSkill.summary}
                   </p>
                 </div>
 
                 <div className="mt-5 border-b border-white/10 pb-4">
-                  <div className="text-xs font-semibold text-white">{t('hero.app.triggers')}</div>
-                  <div className="mt-2 text-[10px] text-white/35">{t('hero.app.triggerHint')}</div>
+                  <div className="text-xs font-semibold text-white">{t('hero.app.whenToUse')}</div>
+                  <div className="mt-2 text-[10px] leading-5 text-white/45">{currentSkill.whenToUse}</div>
+                </div>
+
+                <div className="mt-4 border-b border-white/10 pb-4">
+                  <div className="text-xs font-semibold text-white">{t('hero.app.tryAsking')}</div>
+                  <div className="mt-2 rounded-md bg-white/[0.035] px-2.5 py-2 text-[10px] leading-4 text-white/55">{currentSkill.example}</div>
                 </div>
 
                 <div className="mt-4 border-b border-white/10 pb-4">

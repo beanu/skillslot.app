@@ -1,11 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Apple, Github, Mail } from 'lucide-react'
+import { Github, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
 import Image from 'next/image'
 import Link from 'next/link'
+import { AppleDownloadIcon } from '@/components/apple-download-icon'
 import {
   SKILLSLOT_DOWNLOAD_URL,
   SKILLSLOT_GITHUB_URL,
@@ -54,7 +55,7 @@ export function Footer({ sectionBase = '' }: { sectionBase?: string }) {
               className="bg-primary px-8 text-primary-foreground hover:bg-primary/90"
             >
               <a href={SKILLSLOT_DOWNLOAD_URL || `${sectionBase}#pricing`}>
-                {SKILLSLOT_DOWNLOAD_URL && <Apple className="mr-2 h-5 w-5" aria-hidden="true" />}
+                {SKILLSLOT_DOWNLOAD_URL && <AppleDownloadIcon className="mr-2 h-5 w-5" />}
                 {SKILLSLOT_DOWNLOAD_URL ? t('footer.cta.download') : t('footer.cta.pricing')}
               </a>
             </Button>

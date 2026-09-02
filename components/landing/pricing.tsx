@@ -21,7 +21,7 @@ const tiers = [
 ]
 
 const featureKeys: TranslationKey[] = [
-  'pricing.feature.freeMode',
+  'pricing.feature.imports',
   'pricing.feature.loadouts',
   'pricing.feature.deploy',
   'pricing.feature.skillMap',

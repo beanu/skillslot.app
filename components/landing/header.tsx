@@ -2,12 +2,13 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Apple, Globe } from 'lucide-react'
+import { Globe, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage, useT } from '@/lib/i18n/context'
 import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
 import Image from 'next/image'
 import Link from 'next/link'
+import { AppleDownloadIcon } from '@/components/apple-download-icon'
 
 export function Header({ sectionBase = '' }: { sectionBase?: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -87,7 +88,7 @@ export function Header({ sectionBase = '' }: { sectionBase?: string }) {
             className="bg-foreground text-background hover:bg-foreground/90"
           >
             <a href={SKILLSLOT_DOWNLOAD_URL || `${sectionBase}#pricing`}>
-              {SKILLSLOT_DOWNLOAD_URL && <Apple className="mr-1.5 h-4 w-4" aria-hidden="true" />}
+              {SKILLSLOT_DOWNLOAD_URL && <AppleDownloadIcon className="mr-1.5 h-4 w-4" />}
               {SKILLSLOT_DOWNLOAD_URL ? t('header.download') : t('header.pricing')}
             </a>
           </Button>
@@ -144,7 +145,7 @@ export function Header({ sectionBase = '' }: { sectionBase?: string }) {
                   className="bg-foreground text-background hover:bg-foreground/90"
                 >
                   <a href={SKILLSLOT_DOWNLOAD_URL || `${sectionBase}#pricing`}>
-                    {SKILLSLOT_DOWNLOAD_URL && <Apple className="mr-1.5 h-4 w-4" aria-hidden="true" />}
+                    {SKILLSLOT_DOWNLOAD_URL && <AppleDownloadIcon className="mr-1.5 h-4 w-4" />}
                     {SKILLSLOT_DOWNLOAD_URL ? t('header.download') : t('header.pricing')}
                   </a>
                 </Button>

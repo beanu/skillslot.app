@@ -1,13 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Apple, ArrowRight, Check, KeyRound, Mail } from 'lucide-react'
+import { ArrowRight, Check, KeyRound, Mail } from 'lucide-react'
 import Link from 'next/link'
 import { Footer } from '@/components/landing/footer'
 import { Header } from '@/components/landing/header'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
 import { SKILLSLOT_DOWNLOAD_URL, SKILLSLOT_SUPPORT_EMAIL } from '@/lib/site'
+import { AppleDownloadIcon } from '@/components/apple-download-icon'
 
 const stepKeys = [
   {
@@ -18,7 +19,7 @@ const stepKeys = [
   {
     title: 'thankYou.step.download.title',
     description: 'thankYou.step.download.description',
-    icon: Apple,
+    icon: AppleDownloadIcon,
   },
   {
     title: 'thankYou.step.activate.title',
@@ -79,7 +80,7 @@ export default function ThankYouPage() {
             {SKILLSLOT_DOWNLOAD_URL && (
               <Button asChild size="lg" className="w-full bg-foreground px-7 text-background hover:bg-foreground/90 sm:w-auto">
                 <a href={SKILLSLOT_DOWNLOAD_URL}>
-                  <Apple className="h-4 w-4" aria-hidden="true" />
+                  <AppleDownloadIcon className="h-4 w-4" />
                   {t('thankYou.download')}
                 </a>
               </Button>
