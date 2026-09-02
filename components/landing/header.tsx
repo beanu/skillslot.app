@@ -6,6 +6,7 @@ import { Menu, X, Apple, Globe } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage, useT } from '@/lib/i18n/context'
 import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export function Header({ sectionBase = '' }: { sectionBase?: string }) {
@@ -28,11 +29,14 @@ export function Header({ sectionBase = '' }: { sectionBase?: string }) {
             aria-label="SkillSlot home"
             className="flex min-h-11 items-center gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5" aria-hidden="true">
-                <path d="M12 2L4 7v10l8 5 8-5V7l-8-5zm0 2.5L17.5 8 12 11.5 6.5 8 12 4.5zM6 9.5l5 3v5.5l-5-3V9.5zm12 0v5.5l-5 3V12l5-3z"/>
-              </svg>
-            </span>
+            <Image
+              src="/skillslot-icon.png"
+              alt=""
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-lg"
+              priority
+            />
             <span className="font-mono text-sm font-semibold tracking-wider text-foreground">
               SKILLSLOT
             </span>

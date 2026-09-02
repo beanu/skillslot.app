@@ -215,10 +215,11 @@ export const termsPage: PublicPageData = {
         },
       ],
       bullets: [
-        { zh: '最多导入 10 个 Skills。', en: 'Import up to 10 Skills.' },
-        { zh: '最多创建 2 个 Loadout。', en: 'Create up to 2 Loadouts.' },
-        { zh: '部署到一个 Agent。', en: 'Deploy to one Agent.' },
+        { zh: '不限数量导入、浏览、搜索和管理 Skills。', en: 'Import, browse, search, and manage unlimited Skills.' },
+        { zh: '可以继续使用和编辑已有 Loadout，但新建或复制 Loadout 需要有效试用或 License。', en: 'Continue using and editing existing Loadouts; creating or duplicating a Loadout requires an active trial or license.' },
+        { zh: '不限数量部署到所有内置支持的 Agent 和 `.agents/skills` 共享目标；其他自定义部署目标需要有效试用或 License。', en: 'Deploy without limits to every built-in supported Agent and shared `.agents/skills` targets; other custom deployment targets require an active trial or license.' },
         { zh: 'AI 技能地图与分类需要有效试用或 License。', en: 'The AI Skill Map and categorization require an active trial or license.' },
+        { zh: 'AI 智能生成 Loadout 需要有效试用或 License。', en: 'AI-generated Loadouts require an active trial or license.' },
       ],
     },
     {
@@ -542,8 +543,8 @@ export const faqPage: PublicPageData = {
       title: { zh: 'Free Mode 可以做什么？', en: 'What can I do in Free Mode?' },
       paragraphs: [
         {
-          zh: '你可以继续浏览、搜索和查看 Skills，最多导入 10 个 Skills、创建 2 个 Loadout，并部署到一个 Agent。AI 技能地图与分类需要有效试用或 License。',
-          en: 'You can continue browsing, searching, and viewing Skills, import up to 10 Skills, create 2 Loadouts, and deploy to one Agent. The AI Skill Map and categorization require an active trial or license.',
+          zh: '你可以不限数量导入、浏览、搜索和管理 Skills，也可以不限数量部署到所有内置支持的 Agent 和 `.agents/skills` 共享目标。已有 Loadout 可以继续使用和编辑，但不能新建或复制 Loadout。其他自定义部署目标、AI 技能地图、分类和 AI 智能生成 Loadout 需要有效试用或 License。',
+          en: 'You can import, browse, search, and manage unlimited Skills and deploy without limits to every built-in supported Agent and shared `.agents/skills` targets. Existing Loadouts remain usable and editable, but you cannot create or duplicate a Loadout. Other custom deployment targets, the AI Skill Map, categorization, and AI-generated Loadouts require an active trial or license.',
         },
       ],
     },
@@ -552,8 +553,8 @@ export const faqPage: PublicPageData = {
       title: { zh: 'License 解锁什么？', en: 'What does a license unlock?' },
       paragraphs: [
         {
-          zh: 'License 解锁无限 Skill 导入、无限 Loadout、部署到所有支持的 Agent、AI 技能地图，以及 AI 智能生成 Loadout。',
-          en: 'A license unlocks unlimited Skill imports, unlimited Loadouts, deployment to every supported Agent, the AI Skill Map, and AI-generated Loadouts.',
+          zh: 'License 解锁新建和复制 Loadout、除 `.agents/skills` 之外的自定义部署目标、AI 技能地图与分类，以及 AI 智能生成 Loadout。Skill 导入、所有内置支持 Agent 和 `.agents/skills` 共享目标的部署在 Free Mode 中也不限制数量。',
+          en: 'A license unlocks creating and duplicating Loadouts, custom deployment targets other than shared `.agents/skills`, the AI Skill Map and categorization, and AI-generated Loadouts. Skill imports and deployment to every built-in supported Agent and shared `.agents/skills` targets are already unlimited in Free Mode.',
         },
       ],
     },

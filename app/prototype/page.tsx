@@ -11,10 +11,10 @@ import {
   CheckCircle2,
   Wifi,
   Battery,
-  Search,
-  Zap
+  Search
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 import Link from 'next/link'
 import { InteractiveApp } from '@/components/prototype/interactive-app'
 
@@ -339,9 +339,13 @@ export default function PrototypePage() {
                           whileHover={{ y: -8, scale: 1.15 }}
                           transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                         >
-                          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-b from-amber-400 to-orange-600 shadow-lg">
-                            <Zap className="h-6 w-6 text-white" />
-                          </div>
+                          <Image
+                            src="/skillslot-icon.png"
+                            alt=""
+                            width={44}
+                            height={44}
+                            className="h-11 w-11 rounded-xl shadow-lg"
+                          />
                           <div className="absolute -bottom-1 h-1 w-1 rounded-full bg-white/80" />
                           <div className="pointer-events-none absolute -top-8 rounded bg-zinc-800/90 px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
                             SkillSlot

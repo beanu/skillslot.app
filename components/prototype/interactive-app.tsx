@@ -7,7 +7,6 @@ import {
   Plus,
   ChevronDown,
   Check,
-  Zap,
   Settings,
   FolderOpen,
   Layers,
@@ -16,6 +15,7 @@ import {
   Sparkles
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
 interface InteractiveAppProps {
   flowId: string
@@ -651,7 +651,13 @@ export function InteractiveApp({ flowId, currentStep, onStepChange }: Interactiv
               if (currentStep < 1) onStepChange(1)
             }}
           >
-            <Zap className="h-3.5 w-3.5 text-primary" />
+            <Image
+              src="/menubar-template.png"
+              alt=""
+              width={14}
+              height={14}
+              className="h-3.5 w-3.5 invert"
+            />
             <ChevronDown className="h-3 w-3" />
           </motion.button>
 

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { FileText, Clock, Shuffle } from 'lucide-react'
 import { useT } from '@/lib/i18n/context'
+import Image from 'next/image'
 
 export function WelcomeCard() {
   const t = useT()
@@ -26,11 +27,13 @@ export function WelcomeCard() {
               {/* Header */}
               <div className="flex items-center justify-between border-b border-border bg-card p-4">
                 <div className="flex items-center gap-2">
-                  <div className="flex h-6 w-6 items-center justify-center rounded bg-primary/10 text-primary">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
-                      <path d="M12 2L4 7v10l8 5 8-5V7l-8-5zm0 2.5L17.5 8 12 11.5 6.5 8 12 4.5zM6 9.5l5 3v5.5l-5-3V9.5zm12 0v5.5l-5 3V12l5-3z"/>
-                    </svg>
-                  </div>
+                  <Image
+                    src="/skillslot-icon.png"
+                    alt=""
+                    width={24}
+                    height={24}
+                    className="h-6 w-6 rounded"
+                  />
                   <span className="font-mono text-xs font-semibold tracking-wider text-primary">SKILLSLOT</span>
                 </div>
                 <span className="font-mono text-xs text-muted-foreground">→ SNFF</span>

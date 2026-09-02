@@ -6,6 +6,7 @@ import { Check, LoaderCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage, useT } from '@/lib/i18n/context'
 import type { TranslationKey } from '@/lib/i18n/zh'
+import Image from 'next/image'
 import {
   SKILLSLOT_DOWNLOAD_URL,
   SKILLSLOT_SUPPORT_EMAIL,
@@ -20,11 +21,12 @@ const tiers = [
 ]
 
 const featureKeys: TranslationKey[] = [
-  'pricing.feature.imports',
+  'pricing.feature.freeMode',
   'pricing.feature.loadouts',
   'pricing.feature.deploy',
   'pricing.feature.skillMap',
   'pricing.feature.aiLoadouts',
+  'pricing.feature.updates',
 ]
 
 export function Pricing() {
@@ -140,11 +142,13 @@ export function Pricing() {
                   </text>
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-card border border-border shadow-sm">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 text-primary">
-                      <path d="M12 2L4 7v10l8 5 8-5V7l-8-5zm0 2.5L17.5 8 12 11.5 6.5 8 12 4.5zM6 9.5l5 3v5.5l-5-3V9.5zm12 0v5.5l-5 3V12l5-3z"/>
-                    </svg>
-                  </div>
+                  <Image
+                    src="/skillslot-icon.png"
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="h-8 w-8 rounded-lg border border-border shadow-sm"
+                  />
                 </div>
               </div>
             </div>

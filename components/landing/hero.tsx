@@ -21,6 +21,7 @@ import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
 import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
 import { HeroSkillField } from '@/components/landing/hero-skill-field'
+import Image from 'next/image'
 
 export function Hero() {
   const t = useT()
@@ -164,9 +165,13 @@ export function Hero() {
                 </div>
 
                 <div className="mt-7 flex items-center gap-2.5 px-1">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-black/20 font-mono text-xs font-bold text-primary">
-                    SQ
-                  </div>
+                  <Image
+                    src="/skillslot-icon.png"
+                    alt=""
+                    width={36}
+                    height={36}
+                    className="h-9 w-9 rounded-xl"
+                  />
                   <div>
                     <div className="text-sm font-semibold text-white">SkillSlot</div>
                     <div className="text-[9px] text-white/45">Skill orchestration</div>
