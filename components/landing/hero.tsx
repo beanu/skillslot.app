@@ -18,11 +18,16 @@ import {
   Sparkles,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import dynamic from 'next/dynamic'
 import { useT } from '@/lib/i18n/context'
 import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
-import { HeroSkillField } from '@/components/landing/hero-skill-field'
 import { AppleDownloadIcon } from '@/components/apple-download-icon'
 import Image from 'next/image'
+
+const HeroSkillField = dynamic(
+  () => import('@/components/landing/hero-skill-field').then((module) => module.HeroSkillField),
+  { ssr: false },
+)
 
 export function Hero() {
   const t = useT()

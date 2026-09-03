@@ -6,7 +6,7 @@ SkillSlot 是一款本地 Agent Skill 管理工具。它会自动发现散落在
 
 不再手动复制文件夹，不再记忆复杂路径，也不必为不同 Agent 重复安装同一套 Skills。
 
-[访问 SkillSlot 官网](https://skillslot.app) · [GitHub](https://github.com/beanu/skillslot.app) · [X](https://x.com/robot_yz)
+[访问 SkillSlot 官网](https://www.skillslot.app) · [GitHub](https://github.com/beanu/skillslot.app) · [X](https://x.com/robot_yz)
 
 ## 用 SkillSlot，你可以
 

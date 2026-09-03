@@ -6,6 +6,7 @@ import { Footer } from '@/components/landing/footer'
 import { Header } from '@/components/landing/header'
 import { useLanguage } from '@/lib/i18n/context'
 import type { LocalizedText, PublicPageData } from '@/lib/public-pages'
+import { localizedPath } from '@/lib/i18n/routing'
 
 function localized(locale: 'zh' | 'en', value: LocalizedText) {
   return value[locale]
@@ -24,7 +25,7 @@ export function PublicPage({ page }: { page: PublicPageData }) {
 
       <article className="relative mx-auto max-w-4xl px-6 pb-28 pt-28 sm:pt-32">
         <Link
-          href="/"
+          href={localizedPath(locale, '/')}
           className="inline-flex min-h-11 items-center gap-2 rounded-lg text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
@@ -97,7 +98,7 @@ export function PublicPage({ page }: { page: PublicPageData }) {
                     }
 
                     return (
-                      <Link key={link.href} href={link.href} className={className}>
+                      <Link key={link.href} href={localizedPath(locale, link.href)} className={className}>
                         {label}
                       </Link>
                     )

@@ -183,6 +183,13 @@
   animation: spin-slow 12s linear infinite;
 }
 
+/* Skip off-screen layout and paint work while preserving complete server HTML. */
+.home-page > section:not(:first-of-type),
+.seo-content-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

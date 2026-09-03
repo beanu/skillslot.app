@@ -117,8 +117,8 @@ export const privacyPage: PublicPageData = {
       title: { zh: '6. 网站分析与技术日志', en: '6. Website analytics and technical logs' },
       paragraphs: [
         {
-          zh: '网站使用 Vercel Analytics 了解页面访问和基本使用情况。托管、API 和安全系统也可能处理 IP 地址、浏览器与设备信息、请求时间、来源页面、错误信息和安全日志。我们不使用这些数据建立跨网站广告画像。',
-          en: 'The website uses Vercel Analytics to understand page visits and basic usage. Hosting, API, and security systems may also process IP addresses, browser and device information, request times, referrers, error information, and security logs. We do not use this data to build cross-site advertising profiles.',
+          zh: '网站使用 Vercel Analytics 和 Umami Cloud 了解页面访问和基本使用情况。托管、API 和安全系统也可能处理 IP 地址、浏览器与设备信息、请求时间、来源页面、错误信息和安全日志。我们不使用这些数据建立跨网站广告画像。',
+          en: 'The website uses Vercel Analytics and Umami Cloud to understand page visits and basic usage. Hosting, API, and security systems may also process IP addresses, browser and device information, request times, referrers, error information, and security logs. We do not use this data to build cross-site advertising profiles.',
         },
       ],
     },

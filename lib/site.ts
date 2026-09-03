@@ -1,4 +1,4 @@
-export const SKILLSLOT_SITE_URL = 'https://skillslot.app'
+export const SKILLSLOT_SITE_URL = 'https://www.skillslot.app'
 
 export const SKILLSLOT_SUPPORT_EMAIL = 'support@skillslot.app'
 

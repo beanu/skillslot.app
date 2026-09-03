@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import { InteractiveApp } from '@/components/prototype/interactive-app'
+import { localizedPath } from '@/lib/i18n/routing'
 
 const flows = [
   {
@@ -99,7 +100,7 @@ export default function PrototypePage() {
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6">
           <div className="flex items-center gap-4">
-            <Link href="/">
+            <Link href={localizedPath('zh', '/')}>
               <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground">
                 <ArrowLeft className="h-4 w-4" />
                 返回首页

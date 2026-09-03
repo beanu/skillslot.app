@@ -1,57 +1,40 @@
 'use client'
 
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
-import { zh, type TranslationKey } from './zh'
-import { en } from './en'
+import { createContext, useCallback, useContext, type ReactNode } from 'react'
+import type { TranslationKey } from './zh'
 
-type Locale = 'zh' | 'en'
+export type Locale = 'zh' | 'en'
 
-const dictionaries = { zh, en } as const
+export type TranslationDictionary = Record<TranslationKey, string>
 
 type LanguageContextType = {
   locale: Locale
-  setLocale: (locale: Locale) => void
   t: (key: TranslationKey, vars?: Record<string, string | number>) => string
 }
 
 const LanguageContext = createContext<LanguageContextType | null>(null)
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('zh')
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    const saved = localStorage.getItem('locale') as Locale | null
-    if (saved && (saved === 'zh' || saved === 'en')) {
-      setLocaleState(saved)
-    }
-    setMounted(true)
-  }, [])
-
-  const setLocale = useCallback((newLocale: Locale) => {
-    setLocaleState(newLocale)
-    localStorage.setItem('locale', newLocale)
-    document.documentElement.lang = newLocale === 'zh' ? 'zh-CN' : 'en'
-  }, [])
-
+export function LanguageProvider({
+  children,
+  dictionary,
+  locale,
+}: {
+  children: ReactNode
+  dictionary: TranslationDictionary
+  locale: Locale
+}) {
   const t = useCallback((key: TranslationKey, vars?: Record<string, string | number>) => {
-    let value = dictionaries[locale][key] ?? key
+    let value = dictionary[key] ?? key
     if (vars) {
       Object.entries(vars).forEach(([k, v]) => {
         value = value.replace(`{${k}}`, String(v))
       })
     }
     return value
-  }, [locale])
-
-  useEffect(() => {
-    if (mounted) {
-      document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en'
-    }
-  }, [locale, mounted])
+  }, [dictionary])
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t }}>
+    <LanguageContext.Provider value={{ locale, t }}>
       {children}
     </LanguageContext.Provider>
   )

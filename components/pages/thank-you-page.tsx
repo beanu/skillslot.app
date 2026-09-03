@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
 import { SKILLSLOT_DOWNLOAD_URL, SKILLSLOT_SUPPORT_EMAIL } from '@/lib/site'
 import { AppleDownloadIcon } from '@/components/apple-download-icon'
+import { useLanguage } from '@/lib/i18n/context'
+import { localizedPath } from '@/lib/i18n/routing'
 
 const stepKeys = [
   {
@@ -30,6 +32,7 @@ const stepKeys = [
 
 export default function ThankYouPage() {
   const t = useT()
+  const { locale } = useLanguage()
 
   return (
     <main className="min-h-screen bg-background">
@@ -86,7 +89,7 @@ export default function ThankYouPage() {
               </Button>
             )}
             <Button asChild variant="outline" size="lg" className="w-full px-7 sm:w-auto">
-              <Link href="/">
+              <Link href={localizedPath(locale, '/')}>
                 {t('thankYou.backHome')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
