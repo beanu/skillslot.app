@@ -22,6 +22,7 @@ import dynamic from 'next/dynamic'
 import { useT } from '@/lib/i18n/context'
 import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
 import { AppleDownloadIcon } from '@/components/apple-download-icon'
+import { TrackedDownloadLink } from '@/components/tracked-download-link'
 import Image from 'next/image'
 
 const HeroSkillField = dynamic(
@@ -120,10 +121,10 @@ export function Hero() {
                   size="lg"
                   className="group bg-foreground px-8 text-background hover:bg-foreground/90 sm:col-start-1 sm:row-start-1"
                 >
-                  <a href={SKILLSLOT_DOWNLOAD_URL}>
+                  <TrackedDownloadLink href={SKILLSLOT_DOWNLOAD_URL} source="hero">
                     <AppleDownloadIcon className="mr-2 h-5 w-5" />
                     {t('hero.cta.download')}
-                  </a>
+                  </TrackedDownloadLink>
                 </Button>
                 <span className="text-xs text-muted-foreground sm:col-start-1 sm:row-start-2">
                   {t('hero.cta.size')}

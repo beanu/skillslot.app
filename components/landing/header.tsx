@@ -9,6 +9,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AppleDownloadIcon } from '@/components/apple-download-icon'
+import { TrackedDownloadLink } from '@/components/tracked-download-link'
 import { LANGUAGE_COOKIE, localizedPath } from '@/lib/i18n/routing'
 
 export function Header({ sectionBase = '' }: { sectionBase?: string }) {
@@ -83,10 +84,13 @@ export function Header({ sectionBase = '' }: { sectionBase?: string }) {
             size="sm"
             className="bg-foreground text-background hover:bg-foreground/90"
           >
-            <a href={SKILLSLOT_DOWNLOAD_URL || `${localizedSectionBase}#pricing`}>
+            <TrackedDownloadLink
+              href={SKILLSLOT_DOWNLOAD_URL || `${localizedSectionBase}#pricing`}
+              source="header"
+            >
               {SKILLSLOT_DOWNLOAD_URL && <AppleDownloadIcon className="mr-1.5 h-4 w-4" />}
               {SKILLSLOT_DOWNLOAD_URL ? t('header.download') : t('header.pricing')}
-            </a>
+            </TrackedDownloadLink>
           </Button>
         </div>
 
@@ -136,10 +140,13 @@ export function Header({ sectionBase = '' }: { sectionBase?: string }) {
                   size="sm"
                   className="bg-foreground text-background hover:bg-foreground/90"
                 >
-                  <a href={SKILLSLOT_DOWNLOAD_URL || `${localizedSectionBase}#pricing`}>
+                  <TrackedDownloadLink
+                    href={SKILLSLOT_DOWNLOAD_URL || `${localizedSectionBase}#pricing`}
+                    source="header_mobile"
+                  >
                     {SKILLSLOT_DOWNLOAD_URL && <AppleDownloadIcon className="mr-1.5 h-4 w-4" />}
                     {SKILLSLOT_DOWNLOAD_URL ? t('header.download') : t('header.pricing')}
-                  </a>
+                  </TrackedDownloadLink>
                 </Button>
               </div>
           </nav>

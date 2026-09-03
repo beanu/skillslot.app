@@ -6,6 +6,7 @@ import { useLanguage, useT } from '@/lib/i18n/context'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AppleDownloadIcon } from '@/components/apple-download-icon'
+import { TrackedDownloadLink } from '@/components/tracked-download-link'
 import {
   SKILLSLOT_DOWNLOAD_URL,
   SKILLSLOT_GITHUB_URL,
@@ -61,10 +62,13 @@ export function Footer({
                 size="lg"
                 className="bg-primary px-8 text-primary-foreground hover:bg-primary/90"
               >
-                <a href={SKILLSLOT_DOWNLOAD_URL || `${localizedSectionBase}#pricing`}>
+                <TrackedDownloadLink
+                  href={SKILLSLOT_DOWNLOAD_URL || `${localizedSectionBase}#pricing`}
+                  source="footer"
+                >
                   {SKILLSLOT_DOWNLOAD_URL && <AppleDownloadIcon className="mr-2 h-5 w-5" />}
                   {SKILLSLOT_DOWNLOAD_URL ? t('footer.cta.download') : t('footer.cta.pricing')}
-                </a>
+                </TrackedDownloadLink>
               </Button>
               {SKILLSLOT_DOWNLOAD_URL && (
                 <p className="text-sm text-muted-foreground">

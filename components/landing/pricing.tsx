@@ -11,6 +11,8 @@ import {
   SKILLSLOT_DOWNLOAD_URL,
   SKILLSLOT_SUPPORT_EMAIL,
 } from '@/lib/site'
+import { TrackedDownloadLink } from '@/components/tracked-download-link'
+import { trackUmami } from '@/lib/umami'
 
 type PlanId = 'mac_1' | 'mac_2' | 'mac_3'
 
@@ -80,6 +82,7 @@ export function Pricing() {
         throw new Error(t('pricing.checkoutError'))
       }
 
+      trackUmami('checkout', { plan_id: tier.planId, locale })
       window.location.assign(checkoutUrl)
     } catch (error) {
       setCheckoutError(error instanceof Error ? error.message : t('pricing.checkoutError'))
@@ -243,9 +246,13 @@ export function Pricing() {
             {/* Trial link is shown only when a public download is configured. */}
             {SKILLSLOT_DOWNLOAD_URL && (
               <p className="mt-4 text-center text-sm text-muted-foreground">
-                <a href={SKILLSLOT_DOWNLOAD_URL} className="transition-colors hover:text-foreground">
+                <TrackedDownloadLink
+                  href={SKILLSLOT_DOWNLOAD_URL}
+                  source="pricing_trial"
+                  className="transition-colors hover:text-foreground"
+                >
                   {t('pricing.trialLink')}
-                </a>
+                </TrackedDownloadLink>
               </p>
             )}
 

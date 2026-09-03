@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
 import type { TranslationKey } from '@/lib/i18n/zh'
 import { SKILLSLOT_DOWNLOAD_URL } from '@/lib/site'
+import { TrackedDownloadLink } from '@/components/tracked-download-link'
 
 const stepKeys: { id: string; titleKey: TranslationKey; descKey: TranslationKey }[] = [
   { id: 'scan', titleKey: 'demo.step1.title', descKey: 'demo.step1.desc' },
@@ -100,10 +101,10 @@ export function Demo() {
                 size="lg"
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 sm:w-auto"
               >
-                <a href={SKILLSLOT_DOWNLOAD_URL || '#pricing'}>
+                <TrackedDownloadLink href={SKILLSLOT_DOWNLOAD_URL || '#pricing'} source="demo">
                   {SKILLSLOT_DOWNLOAD_URL ? t('demo.cta') : t('hero.cta.pricing')}
                   <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-                </a>
+                </TrackedDownloadLink>
               </Button>
             </div>
           </motion.div>

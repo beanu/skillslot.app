@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Header } from '@/components/landing/header'
 import { Footer } from '@/components/landing/footer'
+import { TrackedDownloadLink } from '@/components/tracked-download-link'
 import type { Locale } from '@/lib/i18n/context'
 import { localizedPath } from '@/lib/i18n/routing'
 import {
@@ -129,12 +130,13 @@ export function SeoLandingPage({
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a
+              <TrackedDownloadLink
                 href={SKILLSLOT_DOWNLOAD_URL}
+                source="seo_hero"
                 className="inline-flex min-h-11 items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {text.download}
-              </a>
+              </TrackedDownloadLink>
               <Link
                 href={`${localizedPath(locale, '/')}#demo`}
                 className="inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background/60 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -242,12 +244,13 @@ export function SeoLandingPage({
           <div className="mx-auto max-w-3xl rounded-3xl border border-border bg-card p-8 sm:p-12">
             <h2 className="text-balance font-mono text-3xl font-bold text-foreground sm:text-4xl">{copy.ctaTitle}</h2>
             <p className="mx-auto mt-5 max-w-2xl text-pretty text-lg leading-8 text-muted-foreground">{copy.ctaDescription}</p>
-            <a
+            <TrackedDownloadLink
               href={SKILLSLOT_DOWNLOAD_URL}
+              source="seo_cta"
               className="mt-8 inline-flex min-h-11 items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               {text.download}
-            </a>
+            </TrackedDownloadLink>
           </div>
         </section>
       </article>

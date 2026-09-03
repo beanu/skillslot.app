@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import { useT } from '@/lib/i18n/context'
 import { SKILLSLOT_DOWNLOAD_URL, SKILLSLOT_SUPPORT_EMAIL } from '@/lib/site'
 import { AppleDownloadIcon } from '@/components/apple-download-icon'
+import { TrackedDownloadLink } from '@/components/tracked-download-link'
 import { useLanguage } from '@/lib/i18n/context'
 import { localizedPath } from '@/lib/i18n/routing'
 
@@ -82,10 +83,10 @@ export default function ThankYouPage() {
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             {SKILLSLOT_DOWNLOAD_URL && (
               <Button asChild size="lg" className="w-full bg-foreground px-7 text-background hover:bg-foreground/90 sm:w-auto">
-                <a href={SKILLSLOT_DOWNLOAD_URL}>
+                <TrackedDownloadLink href={SKILLSLOT_DOWNLOAD_URL} source="thank_you">
                   <AppleDownloadIcon className="h-4 w-4" />
                   {t('thankYou.download')}
-                </a>
+                </TrackedDownloadLink>
               </Button>
             )}
             <Button asChild variant="outline" size="lg" className="w-full px-7 sm:w-auto">
