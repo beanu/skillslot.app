@@ -29,12 +29,14 @@ export function Footer({
   const productLinks = [
     { label: t('footer.product.features'), href: `${localizedSectionBase}#features` },
     { label: t('footer.product.pricing'), href: `${localizedSectionBase}#pricing` },
+    { label: locale === 'en' ? 'Guides' : '使用指南', href: localizedPath(locale, '/guides') },
     { label: t('footer.product.changelog'), href: localizedPath(locale, '/changelog') },
   ]
 
   const agentSkillLinks = [
     { label: locale === 'en' ? 'Agent Skills Manager' : 'Agent Skills 管理', href: localizedPath(locale, '/agent-skills-manager') },
     { label: 'Claude Code Skills', href: localizedPath(locale, '/claude-code-skills') },
+    { label: locale === 'en' ? 'Claude Skills Marketplace' : 'Claude Skills 市场', href: localizedPath(locale, '/claude-skills-marketplace') },
     { label: 'Codex Skills', href: localizedPath(locale, '/codex-skills') },
     { label: 'Gemini CLI Skills', href: localizedPath(locale, '/gemini-cli-skills') },
   ]

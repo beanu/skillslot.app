@@ -28,6 +28,8 @@ export function createSiteMetadata(locale: Locale): Metadata {
       'SkillSlot',
       'AI Agent Skills',
       'Agent Skills Manager',
+      'Claude Skills',
+      'Claude Skills Marketplace',
       'Claude Code Skills',
       'Codex Skills',
       'Gemini CLI Skills',
